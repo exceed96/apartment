@@ -18,16 +18,15 @@ export default function StatusList(props: TCurrentApartsStatusList) {
       <div className={styles.listTitle}>
         <h3 className={styles.listMainTitle}>{props.title}</h3>
         <h4
-          className={`${styles.listSubTitle} ${
-            isVisible ? styles.visible : ""
-          }`}
+          className={`${styles.listSubTitle} ${isVisible ? styles.visible : ""
+            }`}
         >
-          {props.isLoading ? "" : props.subTitle}
+          {props.isLoading ? "" : props.subTitle ?? "-"}
         </h4>
       </div>
       <div className={styles.listContent}>
         <span className={`${isVisible ? styles.visible : ""}`}>
-          {props.isLoading ? "" : props.content}
+          {props.isLoading ? "" : props.content ?? "-"}
         </span>
       </div>
     </li>

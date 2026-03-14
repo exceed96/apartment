@@ -21,11 +21,13 @@ export const defaultMainData = [
 
 export const formatMainData = (data: TMainResponse) => {
   if (!data) {
+    return defaultMainData;
   }
+  console.log(data);
   const formatData = [
     {
       title: "전국 아파트 평균 매매가",
-      subTitle: `${data?.data.aptAvgPriceMonth}월 한달`,
+      subTitle: `${data?.data.aptAvgPriceMonth ?? "-"}월 한달`,
       content: `${
         data?.data.aptAvgPrice
           ? formatPriceCurrency(data?.data.aptAvgPrice)
@@ -34,12 +36,12 @@ export const formatMainData = (data: TMainResponse) => {
     },
     {
       title: "전국 아파트 수",
-      subTitle: `${data?.data.plannedAptYear}년 ${data?.data.plannedAptMonth}월 기준`,
+      subTitle: `${data?.data.plannedAptYear}년 ${data?.data.plannedAptMonth ?? "-"}월 기준`,
       content: `${data?.data.aptCount?.toLocaleString()} 곳`,
     },
     {
       title: "전국 건설 예정 아파트",
-      subTitle: `${data?.data.plannedAptYear}년 ${data?.data.plannedAptMonth}월 기준`,
+      subTitle: `${data?.data.plannedAptYear}년 ${data?.data.plannedAptMonth ?? "-"}월 기준`,
       content: `${data?.data.plannedAptCount?.toLocaleString()} 곳`,
     },
   ];
